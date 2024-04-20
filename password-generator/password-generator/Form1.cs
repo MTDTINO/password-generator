@@ -17,8 +17,6 @@ namespace password_generator
             InitializeComponent();
         }
         Random rnd = new Random();
-        Random rnd2 = new Random(Guid.NewGuid().GetHashCode());
-        Random rnd3 = new Random(Guid.NewGuid().GetHashCode());
 
         char[] letters_lower = "abcdefghijklmnopqrstuvwxyz".ToArray();
         char[] letters_upper ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
@@ -69,7 +67,22 @@ namespace password_generator
             } else if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked ) {
                 for (int i = 0; i < numOfLetters;i++)
                 {
-                    output += string.Concat(letters_lower[rnd.Next(0, letters_lower.Length)], letters_upper[rnd2.Next(1, letters_upper.Length)], letters_special[rnd2.Next(2, letters_special.Length)], numbers[rnd2.Next(3, numbers.Length)]);
+                    int choice = rnd.Next(4); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_lower[rnd.Next(0, letters_lower.Length)];
+                            break;
+                        case 1:
+                            output += letters_upper[rnd.Next(0, letters_upper.Length)];
+                            break;
+                        case 2:
+                            output += letters_special[rnd.Next(0, letters_special.Length)];
+                            break;
+                        case 3:
+                            output += numbers[rnd.Next(0, numbers.Length)];
+                            break;
+                    }
                 }
                 textBox1.Text = output;
             }
