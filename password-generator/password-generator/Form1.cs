@@ -41,7 +41,8 @@ namespace password_generator
                 textBox1.Text = output;
 
                 //uppercase
-            } else if (checkBox1.Checked && checkBox2.Checked != true && checkBox3.Checked != true && checkBox4.Checked != true)
+            }
+            else if (checkBox1.Checked && checkBox2.Checked != true && checkBox3.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -50,13 +51,17 @@ namespace password_generator
                 textBox1.Text = output;
 
                 // numbers
-            } else if (checkBox3.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox4.Checked != true) {
+            }
+            else if (checkBox3.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox4.Checked != true)
+            {
                 for (int i = 0; i < numOfLetters; i++)
                 {
                     output += numbers[rnd.Next(0, numbers.Length)];
                 }
                 textBox1.Text = output;
-            } else if (checkBox4.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox3.Checked != true) {
+            }
+            else if (checkBox4.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox3.Checked != true)
+            {
                 for (int i = 0; i < numOfLetters; i++)
                 {
                     output += letters_special[rnd.Next(0, letters_special.Length)];
@@ -64,8 +69,10 @@ namespace password_generator
                 textBox1.Text = output;
 
                 // all 4 checkboxes -- to do with other scenarios later
-            } else if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked ) {
-                for (int i = 0; i < numOfLetters;i++)
+            }
+            else if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
+            {
+                for (int i = 0; i < numOfLetters; i++)
                 {
                     int choice = rnd.Next(4); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
                     switch (choice)
@@ -86,8 +93,121 @@ namespace password_generator
                 }
                 textBox1.Text = output;
             }
-   
+            //Uppercase and Lowercase checked
+            if (checkBox1.Checked == true && checkBox2.Checked == true && checkBox3.Checked != true && checkBox4.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(2); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_lower[rnd.Next(0, letters_lower.Length)];
+                            break;
+                        case 1:
+                            output += letters_upper[rnd.Next(0, letters_upper.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
+            //Uppercase Lowercase and Numbers checked
+            if (checkBox1.Checked == true && checkBox2.Checked == true && checkBox3.Checked == true && checkBox4.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(3); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_lower[rnd.Next(0, letters_lower.Length)];
+                            break;
+                        case 1:
+                            output += letters_upper[rnd.Next(0, letters_upper.Length)];
+                            break;
+                        case 2:
+                            output += numbers[rnd.Next(0, numbers.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
+            //Uppercase and Numbers checked
+            if (checkBox1.Checked == true && checkBox3.Checked == true && checkBox2.Checked != true && checkBox4.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(2); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_upper[rnd.Next(0, letters_upper.Length)];
+                            break;
+                        case 1:
+                            output += numbers[rnd.Next(0, numbers.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
+
+            //Uppercase and Symbols (Special Characters) checked
+            if (checkBox1.Checked == true && checkBox4.Checked == true && checkBox2.Checked != true && checkBox3.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(2); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_upper[rnd.Next(0, letters_upper.Length)];
+                            break;
+                        case 1:
+                            output += letters_special[rnd.Next(0, letters_special.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
+            //Lowercase and Numbers checked
+            if (checkBox2.Checked == true && checkBox3.Checked == true && checkBox1.Checked != true && checkBox4.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(2); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_lower[rnd.Next(0, letters_lower.Length)];
+                            break;
+                        case 1:
+                            output += numbers[rnd.Next(0, numbers.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
+            //Lowercase and Symbols checked
+            if (checkBox2.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true && checkBox3.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(2); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += letters_lower[rnd.Next(0, letters_lower.Length)];
+                            break;
+                        case 1:
+                            output += letters_special[rnd.Next(0, letters_special.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
         }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             string max_length = textBox2.Text;
