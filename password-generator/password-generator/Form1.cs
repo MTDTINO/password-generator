@@ -205,6 +205,8 @@ namespace password_generator
                     textBox1.Text = output;
                 }
             }
+            int charactercount = textBox1.Text.Length;
+            label2.Text = Convert.ToString(charactercount);
         }
 
 
