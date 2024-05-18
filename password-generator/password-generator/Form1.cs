@@ -312,7 +312,7 @@ namespace password_generator
                 }
             }
             if (Convert.ToInt32(textBox2.Text)>20) {
-                MessageBox.Show("Password Max Lenghth is 20");
+                MessageBox.Show("Password Max Length is 20");
             }
             int charactercount = textBox1.Text.Length;
             label2.Text = Convert.ToString(charactercount);
