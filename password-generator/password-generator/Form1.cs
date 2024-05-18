@@ -205,6 +205,24 @@ namespace password_generator
                     textBox1.Text = output;
                 }
             }
+            //Numbers and Symbols checked
+            if (checkBox3.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true && checkBox2.Checked != true)
+            {
+                for (int i = 0; i < numOfLetters; i++)
+                {
+                    int choice = rnd.Next(2); // Randomly choose a character type: 0 for lowercase, 1 for uppercase, 2 for special, 3 for number
+                    switch (choice)
+                    {
+                        case 0:
+                            output += numbers[rnd.Next(0, numbers.Length)];
+                            break;
+                        case 1:
+                            output += letters_special[rnd.Next(0, letters_special.Length)];
+                            break;
+                    }
+                    textBox1.Text = output;
+                }
+            }
             int charactercount = textBox1.Text.Length;
             label2.Text = Convert.ToString(charactercount);
         }
