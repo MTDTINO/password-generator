@@ -25,6 +25,7 @@ namespace password_generator
 
         string output;
         int test;
+        int max = 20;
         void generate(int numOfLetters)
         {
             output = null;
@@ -32,7 +33,7 @@ namespace password_generator
             //the case where a single variation of the checkbox is ticked
 
             // lowercase letters
-            if (checkBox2.Checked && checkBox1.Checked != true && checkBox3.Checked != true && checkBox4.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox2.Checked && checkBox1.Checked != true && checkBox3.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -42,7 +43,7 @@ namespace password_generator
 
                 //uppercase
             }
-            else if (checkBox1.Checked && checkBox2.Checked != true && checkBox3.Checked != true && checkBox4.Checked != true)
+            else if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked && checkBox2.Checked != true && checkBox3.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -52,7 +53,7 @@ namespace password_generator
 
                 // numbers
             }
-            else if (checkBox3.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox4.Checked != true)
+            else if (Convert.ToInt32(textBox2.Text) <= max && checkBox3.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -60,7 +61,7 @@ namespace password_generator
                 }
                 textBox1.Text = output;
             }
-            else if (checkBox4.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox3.Checked != true)
+            else if (Convert.ToInt32(textBox2.Text) <= max && checkBox4.Checked && checkBox1.Checked != true && checkBox2.Checked != true && checkBox3.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -70,7 +71,7 @@ namespace password_generator
 
                 // all 4 checkboxes -- to do with other scenarios later
             }
-            else if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
+            else if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -94,7 +95,7 @@ namespace password_generator
                 textBox1.Text = output;
             }
             //Uppercase and Lowercase checked
-            if (checkBox1.Checked == true && checkBox2.Checked == true && checkBox3.Checked != true && checkBox4.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked == true && checkBox2.Checked == true && checkBox3.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -136,7 +137,7 @@ namespace password_generator
             */
 
             //Uppercase and Numbers checked
-            if (checkBox1.Checked == true && checkBox3.Checked == true && checkBox2.Checked != true && checkBox4.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked == true && checkBox3.Checked == true && checkBox2.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -155,7 +156,7 @@ namespace password_generator
             }
 
             //Uppercase and Symbols (Special Characters) checked
-            if (checkBox1.Checked == true && checkBox4.Checked == true && checkBox2.Checked != true && checkBox3.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked == true && checkBox4.Checked == true && checkBox2.Checked != true && checkBox3.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -173,7 +174,7 @@ namespace password_generator
                 }
             }
             //Lowercase and Numbers checked
-            if (checkBox2.Checked == true && checkBox3.Checked == true && checkBox1.Checked != true && checkBox4.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox2.Checked == true && checkBox3.Checked == true && checkBox1.Checked != true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -191,7 +192,7 @@ namespace password_generator
                 }
             }
             //Lowercase and Symbols checked
-            if (checkBox2.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true && checkBox3.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox2.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true && checkBox3.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -209,7 +210,7 @@ namespace password_generator
                 }
             }
             //Numbers and Symbols checked
-            if (checkBox3.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true && checkBox2.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox3.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true && checkBox2.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -227,7 +228,7 @@ namespace password_generator
                 }
             }
             //Uppercase, Lowercase and Numbers checked
-            if (checkBox1.Checked == true && checkBox2.Checked == true && checkBox3.Checked == true && checkBox4.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked == true && checkBox2.Checked == true && checkBox3.Checked == true && checkBox4.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -248,7 +249,7 @@ namespace password_generator
                 }
             }
             //Uppercase, Lowercase and Symbols checked
-            if (checkBox1.Checked == true && checkBox2.Checked == true && checkBox4.Checked == true && checkBox3.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked == true && checkBox2.Checked == true && checkBox4.Checked == true && checkBox3.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -269,7 +270,7 @@ namespace password_generator
                 }
             }
             //Uppercase, Numbers and Symbols checked
-            if (checkBox1.Checked == true && checkBox3.Checked == true && checkBox4.Checked == true && checkBox2.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox1.Checked == true && checkBox3.Checked == true && checkBox4.Checked == true && checkBox2.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -290,7 +291,7 @@ namespace password_generator
                 }
             }
             //Lowercase, Numbers and Symbols checked
-            if (checkBox2.Checked == true && checkBox3.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true)
+            if (Convert.ToInt32(textBox2.Text) <= max && checkBox2.Checked == true && checkBox3.Checked == true && checkBox4.Checked == true && checkBox1.Checked != true)
             {
                 for (int i = 0; i < numOfLetters; i++)
                 {
@@ -309,6 +310,9 @@ namespace password_generator
                     }
                     textBox1.Text = output;
                 }
+            }
+            if (Convert.ToInt32(textBox2.Text)>20) {
+                MessageBox.Show("Password Max Lenghth is 20");
             }
             int charactercount = textBox1.Text.Length;
             label2.Text = Convert.ToString(charactercount);
